@@ -23,7 +23,7 @@ local scene = composer.newScene( sceneName )
 -----------------------------------------------------------------------------------------
  
 -- The local variables for this scene
-local Rose
+local djK
 local scrollXSpeed = -15
 local scrollYSpeed = 8
 local DrakeSounds = audio.loadSound("Sounds/Drake - Signs.mp3")
@@ -33,11 +33,11 @@ local DrakeSoundsChannel
 -- LOCAL FUNCTIONS
 --------------------------------------------------------------------------------------------
 
--- The function that moves the rose across the screen and spin
-local function moveRose()
-    Rose.x = Rose.x + scrollXSpeed
-    Rose.y = Rose.y + scrollYSpeed
-    Rose:rotate(25)
+-- The function that moves the djK across the screen and spin
+local function movedjK()
+    djK.x = djK.x + scrollXSpeed
+    djK.y = djK.y + scrollYSpeed
+    djK:rotate(25)
 end
 
 -- The function that will go to the main menu 
@@ -58,15 +58,15 @@ function scene:create( event )
     -- set the background to be black
     display.setDefault("background", 0, 0, 0)
 
-    -- Insert the Rose image
-    Rose = display.newImageRect("Images/Rose.png", 500, 500)
+    -- Insert the djK image
+    djK = display.newImageRect("Images/djK.png", 500, 500)
 
-    -- set the initial x and y position of Rose
-    Rose.x = display.contentWidth
-    Rose.y = 0
+    -- set the initial x and y position of djK
+    djK.x = display.contentWidth
+    djK.y = 0
 
     -- Insert objects into the scene group in order to ONLY be associated with this scene
-    sceneGroup:insert( Rose )
+    sceneGroup:insert( djK )
 
 end -- function scene:create( event )
 
@@ -93,8 +93,8 @@ function scene:show( event )
         -- start the splash screen music
         DrakeSoundsChannel = audio.play(DrakeSounds)
 
-        -- Call the moveRose function as soon as we enter the frame.
-        Runtime:addEventListener("enterFrame", moveRose)
+        -- Call the movedjK function as soon as we enter the frame.
+        Runtime:addEventListener("enterFrame", movedjK)
 
         -- Go to the main menu screen after the given time.
         timer.performWithDelay ( 3000, gotoMainMenu)          
