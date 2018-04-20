@@ -182,4 +182,3 @@ scene:addEventListener( "destroy", scene )
 
 return scene
 
-
